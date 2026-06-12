@@ -5,7 +5,7 @@
 >
   <div class="navbar__accent" aria-hidden="true"></div>
 
-  <div class="navbar__inner container">
+  <div class="navbar__bar container">
     <a
       routerLink="/"
       class="navbar__brand"
@@ -35,15 +35,9 @@
       <span class="navbar__toggle-line"></span>
     </button>
 
-    <div class="navbar__end" [class.navbar__end--open]="menuOpen()">
+    <!-- Desktop navigation -->
+    <div class="navbar__desktop">
       <nav id="main-nav" class="navbar__nav" [attr.aria-label]="'NAV.MAIN_NAV' | translate">
-        <div class="navbar__nav-header">
-          <span class="navbar__nav-label">{{ 'NAV.MENU' | translate }}</span>
-          <div class="navbar__lang navbar__lang--mobile">
-            <app-language-switcher />
-          </div>
-        </div>
-
         <ul class="navbar__links">
           @for (link of navLinks; track link.path) {
             <li>
@@ -51,25 +45,20 @@
                 [routerLink]="link.path"
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
-                (click)="closeMenu()"
               >
                 <span>{{ link.labelKey | translate }}</span>
               </a>
             </li>
           }
         </ul>
-
-        <a routerLink="/products" class="navbar__cta" (click)="closeMenu()">
-          {{ 'HOME.HERO_CTA' | translate }}
-        </a>
       </nav>
-
-      <div class="navbar__lang navbar__lang--desktop">
+      <div class="navbar__lang">
         <app-language-switcher />
       </div>
     </div>
   </div>
 
+  <!-- Mobile menu overlay -->
   @if (menuOpen()) {
     <button
       type="button"
@@ -77,5 +66,37 @@
       (click)="closeMenu()"
       [attr.aria-label]="'NAV.CLOSE_MENU' | translate"
     ></button>
+
+    <div class="navbar__mobile-panel" role="dialog" aria-modal="true">
+      <div class="navbar__mobile-panel-inner container">
+        <div class="navbar__nav-header">
+          <span class="navbar__nav-label">{{ 'NAV.MENU' | translate }}</span>
+          <div class="navbar__lang navbar__lang--mobile">
+            <app-language-switcher />
+          </div>
+        </div>
+
+        <nav class="navbar__nav navbar__nav--mobile" [attr.aria-label]="'NAV.MAIN_NAV' | translate">
+          <ul class="navbar__links">
+            @for (link of navLinks; track link.path) {
+              <li>
+                <a
+                  [routerLink]="link.path"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
+                  (click)="closeMenu()"
+                >
+                  <span>{{ link.labelKey | translate }}</span>
+                </a>
+              </li>
+            }
+          </ul>
+
+          <a routerLink="/products" class="navbar__cta" (click)="closeMenu()">
+            {{ 'HOME.HERO_CTA' | translate }}
+          </a>
+        </nav>
+      </div>
+    </div>
   }
 </header>

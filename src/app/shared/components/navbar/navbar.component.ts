@@ -46,6 +46,13 @@ export class NavbarComponent {
     this.closeMenu();
   }
 
+  @HostListener('window:resize')
+  onResize(): void {
+    if (window.innerWidth >= 992) {
+      this.closeMenu();
+    }
+  }
+
   toggleMenu(): void {
     this.menuOpen.update((open) => !open);
     this.syncBodyScroll();

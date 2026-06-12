@@ -6,9 +6,7 @@
   inset-block-start: 0;
   inset-inline: 0;
   z-index: 1100;
-  background: rgba($color-white, 0.92);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: rgba($color-white, 0.96);
   border-block-end: 1px solid rgba($color-border, 0.6);
   transition:
     box-shadow 0.35s ease,
@@ -50,18 +48,19 @@
     transform 0.35s ease;
 }
 
-.navbar__inner {
+// Top bar: logo + toggle + desktop nav
+.navbar__bar {
   position: relative;
+  z-index: 1102;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: $navbar-height;
-  gap: 1.5rem;
+  gap: 1rem;
+  background: inherit;
 }
 
 .navbar__brand {
-  position: relative;
-  z-index: 2;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -80,31 +79,8 @@
   object-fit: contain;
 }
 
-.navbar__lang {
-  flex-shrink: 0;
-
-  &--desktop {
-    display: none;
-    z-index: 2;
-
-    @include respond-to(lg) {
-      display: flex;
-      margin-inline-start: 1.25rem;
-    }
-  }
-
-  &--mobile {
-    display: flex;
-
-    @include respond-to(lg) {
-      display: none;
-    }
-  }
-}
-
 .navbar__toggle {
   display: flex;
-  z-index: 2;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -119,6 +95,10 @@
   transition:
     border-color 0.3s ease,
     background 0.3s ease;
+
+  @include respond-to(lg) {
+    display: none;
+  }
 
   &:hover {
     border-color: rgba($color-primary, 0.4);
@@ -157,7 +137,8 @@
     opacity 0.3s ease;
 }
 
-.navbar__end {
+// Desktop nav row
+.navbar__desktop {
   display: none;
 
   @include respond-to(lg) {
@@ -166,39 +147,19 @@
     gap: 1.25rem;
     margin-inline-start: auto;
   }
-
-  &--open {
-    display: flex;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    inset-block-start: $navbar-height;
-    inset-inline: 0;
-    inset-block-end: 0;
-    background: $color-white;
-    padding: 1.5rem;
-    overflow-y: auto;
-    animation: slideDown 0.35s ease;
-    z-index: 1;
-
-    @include respond-to(lg) {
-      position: static;
-      flex-direction: row;
-      padding: 0;
-      overflow: visible;
-      animation: none;
-      inset: auto;
-    }
-  }
 }
 
 .navbar__nav {
-  display: contents;
-
   @include respond-to(lg) {
     display: flex;
     align-items: center;
   }
+}
+
+.navbar__nav--mobile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .navbar__nav-header {
@@ -209,10 +170,6 @@
   margin-block-end: 1.5rem;
   padding-block-end: 1rem;
   border-block-end: 1px solid $color-border;
-
-  @include respond-to(lg) {
-    display: none;
-  }
 }
 
 .navbar__nav-label {
@@ -221,6 +178,14 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: $color-primary;
+}
+
+.navbar__lang {
+  flex-shrink: 0;
+
+  &--mobile {
+    display: flex;
+  }
 }
 
 .navbar__links {
@@ -245,7 +210,7 @@
 
   a {
     position: relative;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     padding: 0.875rem 1rem;
     text-decoration: none;
@@ -299,6 +264,7 @@
     }
 
     @include respond-to(lg) {
+      display: inline-flex;
       padding: 0.5rem 1rem;
 
       &:hover,
@@ -314,26 +280,43 @@
   width: 100%;
   margin-block-start: 1.5rem;
   font-size: 0.95rem;
+}
+
+// Mobile backdrop — behind panel, no blur on content
+.navbar__backdrop {
+  position: fixed;
+  inset: 0;
+  inset-block-start: $navbar-height;
+  border: none;
+  background: rgba($color-dark, 0.5);
+  cursor: pointer;
+  z-index: 1100;
+  animation: fadeIn 0.3s ease;
 
   @include respond-to(lg) {
     display: none;
   }
 }
 
-.navbar__backdrop {
+// Mobile menu panel — above backdrop, solid background
+.navbar__mobile-panel {
   position: fixed;
-  inset: 0;
   inset-block-start: $navbar-height;
-  border: none;
-  background: rgba($color-dark, 0.45);
-  backdrop-filter: blur(4px);
-  cursor: pointer;
-  z-index: 0;
-  animation: fadeIn 0.3s ease;
+  inset-inline: 0;
+  inset-block-end: 0;
+  z-index: 1101;
+  background: $color-white;
+  overflow-y: auto;
+  animation: slideDown 0.35s ease;
+  -webkit-overflow-scrolling: touch;
 
   @include respond-to(lg) {
     display: none;
   }
+}
+
+.navbar__mobile-panel-inner {
+  padding-block: 1.5rem 2rem;
 }
 
 @keyframes slideDown {
