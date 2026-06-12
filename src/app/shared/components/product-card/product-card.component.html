@@ -1,0 +1,29 @@
+<article
+  class="product-card"
+  [class.product-card--clickable]="clickable"
+  (click)="onSelect()"
+  (keyup.enter)="onSelect()"
+  (keyup.space)="onSelect(); $event.preventDefault()"
+  [attr.tabindex]="clickable ? 0 : null"
+  [attr.role]="clickable ? 'button' : null"
+>
+  <div class="product-card__image">
+    <app-lazy-image
+      [src]="product.image"
+      [alt]="getProductName(product, language.currentLanguage())"
+      [width]="400"
+      [height]="300"
+      aspectRatio="4 / 3"
+    />
+    @if (clickable) {
+      <span class="product-card__view">{{ 'PRODUCTS.VIEW_DETAILS' | translate }}</span>
+    }
+  </div>
+  <div class="product-card__body">
+    <span class="product-card__category">
+      {{ ('PRODUCTS.FILTER_' + (product.category === 'juice' ? 'JUICE' : 'MILK')) | translate }}
+    </span>
+    <h3>{{ getProductName(product, language.currentLanguage()) }}</h3>
+    <p>{{ getProductDescription(product, language.currentLanguage()) }}</p>
+  </div>
+</article>

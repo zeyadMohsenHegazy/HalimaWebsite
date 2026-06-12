@@ -1,0 +1,43 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.product-skeleton {
+  @include card;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.product-skeleton__image {
+  aspect-ratio: 4 / 3;
+}
+
+.product-skeleton__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.product-skeleton__pill {
+  width: 4.5rem;
+  height: 1.25rem;
+  border-radius: 999px;
+}
+
+.product-skeleton__title {
+  width: 72%;
+  height: 1.25rem;
+  border-radius: $border-radius-sm;
+}
+
+.product-skeleton__line {
+  width: 100%;
+  height: 0.85rem;
+  border-radius: $border-radius-sm;
+
+  &--short {
+    width: 60%;
+  }
+}

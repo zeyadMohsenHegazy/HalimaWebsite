@@ -1,0 +1,148 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba($color-dark, 0.65);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.25s ease;
+}
+
+.modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: $color-white;
+  border-radius: 20px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease;
+
+  @include respond-to(md) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 85vh;
+    overflow: hidden;
+  }
+}
+
+.modal__close {
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba($color-white, 0.95);
+  color: $color-dark;
+  cursor: pointer;
+  box-shadow: $shadow-sm;
+  @include flex-center;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  &:hover {
+    background: $color-primary;
+    color: $color-white;
+  }
+}
+
+.modal__image {
+  position: relative;
+  background: $color-light;
+
+  img {
+    width: 100%;
+    min-height: 240px;
+    object-fit: cover;
+    display: block;
+
+    @include respond-to(md) {
+      height: 100%;
+      min-height: 100%;
+    }
+  }
+}
+
+.modal__category {
+  position: absolute;
+  inset-block-end: 1rem;
+  inset-inline-start: 1rem;
+  padding: 0.35rem 0.85rem;
+  background: $color-primary;
+  color: $color-white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.modal__body {
+  padding: 2rem;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-block-end: 1rem;
+    padding-inline-end: 2rem;
+  }
+
+  p {
+    color: $color-text-muted;
+    line-height: 1.75;
+    margin-block-end: 1.75rem;
+  }
+}
+
+.modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.modal__dismiss {
+  padding: 0.875rem 1.5rem;
+  border: 2px solid $color-border;
+  border-radius: $border-radius-sm;
+  background: transparent;
+  color: $color-dark;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

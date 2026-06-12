@@ -1,0 +1,81 @@
+<header
+  class="navbar"
+  [class.navbar--scrolled]="isScrolled()"
+  [class.navbar--menu-open]="menuOpen()"
+>
+  <div class="navbar__accent" aria-hidden="true"></div>
+
+  <div class="navbar__inner container">
+    <a
+      routerLink="/"
+      class="navbar__brand"
+      (click)="closeMenu()"
+      [attr.aria-label]="'NAV.HOME_ARIA' | translate"
+    >
+      <img
+        [src]="languageService.getLogoPath()"
+        alt="Halima"
+        class="navbar__logo"
+        width="150"
+        height="52"
+      />
+    </a>
+
+    <button
+      type="button"
+      class="navbar__toggle"
+      [class.navbar__toggle--open]="menuOpen()"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="main-nav"
+      [attr.aria-label]="'NAV.TOGGLE_MENU' | translate"
+    >
+      <span class="navbar__toggle-line"></span>
+      <span class="navbar__toggle-line"></span>
+      <span class="navbar__toggle-line"></span>
+    </button>
+
+    <div class="navbar__end" [class.navbar__end--open]="menuOpen()">
+      <nav id="main-nav" class="navbar__nav" [attr.aria-label]="'NAV.MAIN_NAV' | translate">
+        <div class="navbar__nav-header">
+          <span class="navbar__nav-label">{{ 'NAV.MENU' | translate }}</span>
+          <div class="navbar__lang navbar__lang--mobile">
+            <app-language-switcher />
+          </div>
+        </div>
+
+        <ul class="navbar__links">
+          @for (link of navLinks; track link.path) {
+            <li>
+              <a
+                [routerLink]="link.path"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
+                (click)="closeMenu()"
+              >
+                <span>{{ link.labelKey | translate }}</span>
+              </a>
+            </li>
+          }
+        </ul>
+
+        <a routerLink="/products" class="navbar__cta" (click)="closeMenu()">
+          {{ 'HOME.HERO_CTA' | translate }}
+        </a>
+      </nav>
+
+      <div class="navbar__lang navbar__lang--desktop">
+        <app-language-switcher />
+      </div>
+    </div>
+  </div>
+
+  @if (menuOpen()) {
+    <button
+      type="button"
+      class="navbar__backdrop"
+      (click)="closeMenu()"
+      [attr.aria-label]="'NAV.CLOSE_MENU' | translate"
+    ></button>
+  }
+</header>

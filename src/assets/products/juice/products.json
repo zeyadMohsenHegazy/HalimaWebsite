@@ -1,0 +1,56 @@
+[
+  {
+    "id": "juice-mango",
+    "nameEn": "Tropical Mango Juice",
+    "nameAr": "عصير مانجو استوائي",
+    "descriptionEn": "Rich mango flavor packed with vitamins in every refreshing sip.",
+    "descriptionAr": "نكهة مانجو غنية مليئة بالفيتامينات في كل رشفة منعشة.",
+    "image": "assets/products/juice/juice-1.jpeg",
+    "category": "juice"
+  },
+  {
+    "id": "juice-orange",
+    "nameEn": "Classic Orange Juice",
+    "nameAr": "عصير برتقال كلاسيكي",
+    "descriptionEn": "Sun-ripened oranges pressed for a bright, zesty morning boost.",
+    "descriptionAr": "برتقال ناضج طازج لبداية صباحية منعشة وحيوية.",
+    "image": "assets/products/juice/juice-2.jpeg",
+    "category": "juice"
+  },
+  {
+    "id": "juice-mixed-fruit",
+    "nameEn": "Mixed Fruit Delight",
+    "nameAr": "مزيج الفواكه المشكلة",
+    "descriptionEn": "A balanced blend of seasonal fruits for the whole family.",
+    "descriptionAr": "مزيج متوازن من الفواكه الموسمية لجميع أفراد العائلة.",
+    "image": "assets/products/juice/juice-3.jpeg",
+    "category": "juice"
+  },
+  {
+    "id": "juice-apple",
+    "nameEn": "Crisp Apple Juice",
+    "nameAr": "عصير تفاح منعش",
+    "descriptionEn": "Naturally sweet apple juice with a clean, smooth finish.",
+    "descriptionAr": "عصير تفاح طبيعي حلو بنكهة ناعمة ونقية.",
+    "image": "assets/products/juice/juice-4.jpeg",
+    "category": "juice"
+  },
+  {
+    "id": "juice-guava",
+    "nameEn": "Guava Fresh",
+    "nameAr": "عصير جوافة طازج",
+    "descriptionEn": "Authentic guava taste with a fragrant, tropical aroma.",
+    "descriptionAr": "طعم جوافة أصيل برائحة استوائية عطرة.",
+    "image": "assets/products/juice/juice-5.jpeg",
+    "category": "juice"
+  },
+  {
+    "id": "juice-pineapple",
+    "nameEn": "Pineapple Splash",
+    "nameAr": "عصير أناناس منعش",
+    "descriptionEn": "Tangy pineapple juice that energizes and refreshes.",
+    "descriptionAr": "عصير أناناس لاذع ينشط وينعش.",
+    "image": "assets/products/juice/juice-6.jpeg",
+    "category": "juice"
+  }
+]

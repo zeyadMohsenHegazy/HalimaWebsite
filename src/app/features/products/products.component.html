@@ -1,0 +1,124 @@
+<app-page-hero
+  [title]="'PRODUCTS.HERO_TITLE' | translate"
+  [subtitle]="'PRODUCTS.HERO_SUBTITLE' | translate"
+/>
+
+<section class="section products-page">
+  <div class="container">
+    <!-- Toolbar: Search + Results count -->
+    <div class="products-toolbar">
+      <div class="products-search">
+        <svg class="products-search__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input
+          type="search"
+          [placeholder]="'PRODUCTS.SEARCH_PLACEHOLDER' | translate"
+          [ngModel]="searchQuery()"
+          (ngModelChange)="onSearchChange($event)"
+          [attr.aria-label]="'PRODUCTS.SEARCH_ARIA' | translate"
+        />
+      </div>
+      <p class="products-toolbar__count">
+        {{ 'PRODUCTS.RESULTS' | translate }}:
+        <strong>{{ filteredProducts().length }}</strong>
+      </p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="products-tabs" role="tablist" [attr.aria-label]="'PRODUCTS.CATEGORIES' | translate">
+      @for (category of categories; track category) {
+        <button
+          type="button"
+          role="tab"
+          class="products-tabs__btn"
+          [class.products-tabs__btn--active]="activeCategory() === category"
+          [attr.aria-selected]="activeCategory() === category"
+          (click)="setCategory(category)"
+        >
+          @if (category === 'milk') {
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C9 2 7 4 7 7v1H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2h-2V7c0-3-2-5-5-5zm-3 6V7c0-1.66 1.34-3 3-3s3 1.34 3 3v1H9z"/></svg>
+          } @else if (category === 'juice') {
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 3H6C4.9 3 4 3.9 4 5v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H6V5h12v14z"/></svg>
+          }
+          {{ getCategoryLabel(category) }}
+        </button>
+      }
+    </div>
+
+    <!-- Loading -->
+    @if (loading()) {
+      <div class="products-grid products-grid--skeleton" role="status" [attr.aria-label]="'PRODUCTS.LOADING' | translate">
+        @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+          <app-product-skeleton />
+        }
+      </div>
+    }
+
+    <!-- Product Grid -->
+    @else if (paginatedProducts().length > 0) {
+      <div class="products-grid">
+        @for (product of paginatedProducts(); track product.id; let i = $index) {
+          <div appScrollReveal [revealDelay]="(i % 6) * 60">
+            <app-product-card
+              [product]="product"
+              (productSelect)="openProduct($event)"
+            />
+          </div>
+        }
+      </div>
+
+      <!-- Pagination -->
+      @if (totalPages() > 1) {
+        <nav class="products-pagination" [attr.aria-label]="'PRODUCTS.PAGINATION' | translate">
+          <button
+            type="button"
+            class="products-pagination__btn"
+            [disabled]="currentPage() === 1"
+            (click)="goToPage(currentPage() - 1)"
+          >
+            {{ 'PRODUCTS.PREV' | translate }}
+          </button>
+
+          <div class="products-pagination__pages">
+            @for (page of pageNumbers(); track page) {
+              <button
+                type="button"
+                class="products-pagination__page"
+                [class.products-pagination__page--active]="currentPage() === page"
+                (click)="goToPage(page)"
+                [attr.aria-current]="currentPage() === page ? 'page' : null"
+              >
+                {{ page }}
+              </button>
+            }
+          </div>
+
+          <button
+            type="button"
+            class="products-pagination__btn"
+            [disabled]="currentPage() === totalPages()"
+            (click)="goToPage(currentPage() + 1)"
+          >
+            {{ 'PRODUCTS.NEXT' | translate }}
+          </button>
+        </nav>
+      }
+    } @else {
+      <div class="products-empty">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <p>{{ 'PRODUCTS.EMPTY' | translate }}</p>
+        @if (searchQuery()) {
+          <button type="button" class="btn-primary" (click)="onSearchChange('')">
+            {{ 'PRODUCTS.CLEAR_SEARCH' | translate }}
+          </button>
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<app-product-detail-modal
+  [product]="selectedProduct()"
+  (closed)="closeModal()"
+/>

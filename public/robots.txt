@@ -1,0 +1,15 @@
+# Halima - Milk & Juice Manufacturing
+# https://www.halima.com
+
+User-agent: *
+Allow: /
+
+# Block build artifacts if accidentally exposed
+Disallow: /api/
+Disallow: /*.json$
+
+# Crawl-delay for polite bots (optional)
+User-agent: Bingbot
+Crawl-delay: 1
+
+Sitemap: https://www.halima.com/sitemap.xml

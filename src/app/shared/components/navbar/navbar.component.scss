@@ -1,0 +1,359 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.navbar {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 1100;
+  background: rgba($color-white, 0.92);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-block-end: 1px solid rgba($color-border, 0.6);
+  transition:
+    box-shadow 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease;
+
+  &--scrolled {
+    background: rgba($color-white, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+
+    .navbar__accent {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+
+  &--menu-open {
+    background: $color-white;
+  }
+}
+
+.navbar__accent {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    darken($color-primary, 6%) 0%,
+    $color-primary 50%,
+    lighten($color-primary, 8%) 100%
+  );
+  opacity: 0;
+  transform: scaleX(0.6);
+  transform-origin: center;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.navbar__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: $navbar-height;
+  gap: 1.5rem;
+}
+
+.navbar__brand {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
+
+.navbar__logo {
+  height: 52px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+}
+
+.navbar__lang {
+  flex-shrink: 0;
+
+  &--desktop {
+    display: none;
+    z-index: 2;
+
+    @include respond-to(lg) {
+      display: flex;
+      margin-inline-start: 1.25rem;
+    }
+  }
+
+  &--mobile {
+    display: flex;
+
+    @include respond-to(lg) {
+      display: none;
+    }
+  }
+}
+
+.navbar__toggle {
+  display: flex;
+  z-index: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba($color-border, 0.9);
+  border-radius: $border-radius-sm;
+  background: $color-white;
+  cursor: pointer;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.4);
+    background: rgba($color-primary, 0.04);
+  }
+
+  &--open {
+    border-color: $color-primary;
+    background: rgba($color-primary, 0.06);
+
+    .navbar__toggle-line {
+      &:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.navbar__toggle-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: $color-dark;
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.navbar__end {
+  display: none;
+
+  @include respond-to(lg) {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-inline-start: auto;
+  }
+
+  &--open {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset-block-start: $navbar-height;
+    inset-inline: 0;
+    inset-block-end: 0;
+    background: $color-white;
+    padding: 1.5rem;
+    overflow-y: auto;
+    animation: slideDown 0.35s ease;
+    z-index: 1;
+
+    @include respond-to(lg) {
+      position: static;
+      flex-direction: row;
+      padding: 0;
+      overflow: visible;
+      animation: none;
+      inset: auto;
+    }
+  }
+}
+
+.navbar__nav {
+  display: contents;
+
+  @include respond-to(lg) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.navbar__nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-block-end: 1.5rem;
+  padding-block-end: 1rem;
+  border-block-end: 1px solid $color-border;
+
+  @include respond-to(lg) {
+    display: none;
+  }
+}
+
+.navbar__nav-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-primary;
+}
+
+.navbar__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include respond-to(lg) {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.125rem;
+    width: auto;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.875rem 1rem;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: $color-dark;
+    border-radius: $border-radius-sm;
+    transition:
+      color 0.3s ease,
+      background 0.3s ease;
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset-block-end: 0.5rem;
+      inset-inline: 1rem;
+      height: 2px;
+      background: $color-primary;
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+
+      @include respond-to(lg) {
+        inset-block-end: 0.35rem;
+      }
+    }
+
+    &:hover {
+      color: $color-primary;
+      background: rgba($color-primary, 0.05);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &.active {
+      color: $color-primary;
+      background: rgba($color-primary, 0.08);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    @include respond-to(lg) {
+      padding: 0.5rem 1rem;
+
+      &:hover,
+      &.active {
+        background: transparent;
+      }
+    }
+  }
+}
+
+.navbar__cta {
+  @include button-primary;
+  width: 100%;
+  margin-block-start: 1.5rem;
+  font-size: 0.95rem;
+
+  @include respond-to(lg) {
+    display: none;
+  }
+}
+
+.navbar__backdrop {
+  position: fixed;
+  inset: 0;
+  inset-block-start: $navbar-height;
+  border: none;
+  background: rgba($color-dark, 0.45);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  z-index: 0;
+  animation: fadeIn 0.3s ease;
+
+  @include respond-to(lg) {
+    display: none;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,205 @@
+<app-page-hero
+  [title]="'ABOUT.HERO_TITLE' | translate"
+  [subtitle]="'ABOUT.HERO_SUBTITLE' | translate"
+/>
+
+<!-- Company Introduction -->
+<section class="section about-intro">
+  <div class="container about-intro__grid">
+    <div class="about-intro__content" appScrollReveal>
+      <span class="eyebrow">{{ 'ABOUT.INTRO_EYEBROW' | translate }}</span>
+      <h2>{{ 'ABOUT.INTRO_TITLE' | translate }}</h2>
+      <p>{{ 'ABOUT.INTRO_P1' | translate }}</p>
+      <p>{{ 'ABOUT.INTRO_P2' | translate }}</p>
+      <div class="about-intro__stats">
+        <div class="mini-stat" appScrollReveal [revealDelay]="100">
+          <strong>{{ 'ABOUT.INTRO_STAT_1' | translate }}</strong>
+          <span>{{ 'ABOUT.INTRO_STAT_1_LABEL' | translate }}</span>
+        </div>
+        <div class="mini-stat" appScrollReveal [revealDelay]="200">
+          <strong>{{ 'ABOUT.INTRO_STAT_2' | translate }}</strong>
+          <span>{{ 'ABOUT.INTRO_STAT_2_LABEL' | translate }}</span>
+        </div>
+        <div class="mini-stat" appScrollReveal [revealDelay]="300">
+          <strong>{{ 'ABOUT.INTRO_STAT_3' | translate }}</strong>
+          <span>{{ 'ABOUT.INTRO_STAT_3_LABEL' | translate }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-intro__media" appScrollReveal [revealDelay]="150">
+      <img
+        src="assets/products/juice/juice-3.jpeg"
+        alt="Halima facility"
+        loading="lazy"
+      />
+      <div class="about-intro__badge">
+        <span>Halima</span>
+        <small>Est. 1998</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vision & Mission -->
+<section class="section section--light vision-mission">
+  <div class="container">
+    <div class="vision-mission__grid">
+      <article class="vm-card vm-card--vision" appScrollReveal>
+        <div class="vm-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+        </div>
+        <h3>{{ 'ABOUT.VISION_TITLE' | translate }}</h3>
+        <p>{{ 'ABOUT.VISION_TEXT' | translate }}</p>
+        <blockquote class="vm-card__quote">"{{ 'ABOUT.VISION_QUOTE' | translate }}"</blockquote>
+      </article>
+
+      <article class="vm-card vm-card--mission" appScrollReveal [revealDelay]="120">
+        <div class="vm-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3>{{ 'ABOUT.MISSION_TITLE' | translate }}</h3>
+        <p>{{ 'ABOUT.MISSION_TEXT' | translate }}</p>
+        <ul class="vm-card__list">
+          @for (point of missionPoints; track point) {
+            <li>{{ point | translate }}</li>
+          }
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="section about-values">
+  <div class="container">
+    <app-section-title
+      [title]="'ABOUT.VALUES_TITLE' | translate"
+      [subtitle]="'ABOUT.VALUES_SUBTITLE' | translate"
+    />
+    <div class="values-grid">
+      @for (value of values; track value.id; let i = $index) {
+        <article class="value-card" appScrollReveal [revealDelay]="i * 80">
+          <div class="value-card__number">{{ i + 1 }}</div>
+          <h4>{{ value.titleKey | translate }}</h4>
+          <p>{{ value.descKey | translate }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Production Quality -->
+<section class="section section--light about-quality">
+  <div class="container">
+    <app-section-title
+      [title]="'ABOUT.QUALITY_TITLE' | translate"
+      [subtitle]="'ABOUT.QUALITY_SUBTITLE' | translate"
+    />
+    <div class="quality-grid">
+      @for (pillar of qualityPillars; track pillar.id; let i = $index) {
+        <article class="quality-card" appScrollReveal [revealDelay]="i * 100">
+          <div class="quality-card__step">{{ i + 1 }}</div>
+          <h4>{{ pillar.titleKey | translate }}</h4>
+          <p>{{ pillar.descKey | translate }}</p>
+        </article>
+      }
+    </div>
+    <div class="quality-showcase" appScrollReveal [revealDelay]="200">
+      <img
+        src="assets/products/juice/juice-5.jpeg"
+        alt="Halima production quality"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Distribution Network -->
+<section class="section about-distribution">
+  <div class="container about-distribution__grid">
+    <div appScrollReveal>
+      <span class="eyebrow">{{ 'ABOUT.DIST_TITLE' | translate }}</span>
+      <h2>{{ 'ABOUT.DIST_SUBTITLE' | translate }}</h2>
+      <p class="about-distribution__text">{{ 'ABOUT.DIST_TEXT' | translate }}</p>
+      <div class="dist-stats">
+        <div class="dist-stat">
+          <strong>{{ 'ABOUT.DIST_STAT_1' | translate }}</strong>
+          <span>{{ 'ABOUT.DIST_STAT_1_LABEL' | translate }}</span>
+        </div>
+        <div class="dist-stat">
+          <strong>{{ 'ABOUT.DIST_STAT_2' | translate }}</strong>
+          <span>{{ 'ABOUT.DIST_STAT_2_LABEL' | translate }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="regions-card" appScrollReveal [revealDelay]="150">
+      <h3>{{ 'ABOUT.DIST_REGIONS_TITLE' | translate }}</h3>
+      <ul>
+        @for (region of distributionRegions; track region) {
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            {{ region | translate }}
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Sustainability -->
+<section class="section section--light about-sustain">
+  <div class="container">
+    <app-section-title
+      [title]="'ABOUT.SUSTAIN_TITLE' | translate"
+      [subtitle]="'ABOUT.SUSTAIN_SUBTITLE' | translate"
+    />
+    <div class="sustain-grid">
+      @for (item of sustainability; track item.id; let i = $index) {
+        <article class="sustain-card" appScrollReveal [revealDelay]="i * 90">
+          <div class="sustain-card__icon" aria-hidden="true">🌱</div>
+          <h4>{{ item.titleKey | translate }}</h4>
+          <p>{{ item.descKey | translate }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Company Timeline -->
+<section class="section about-timeline">
+  <div class="container">
+    <app-section-title
+      [title]="'ABOUT.TIMELINE_TITLE' | translate"
+      [subtitle]="'ABOUT.TIMELINE_SUBTITLE' | translate"
+    />
+    <div class="timeline">
+      @for (event of timeline; track event.id; let i = $index; let last = $last) {
+        <article
+          class="timeline__item"
+          [class.timeline__item--last]="last"
+          appScrollReveal
+          [revealDelay]="i * 100"
+        >
+          <span class="timeline__year">{{ event.year }}</span>
+          <div class="timeline__content">
+            <h4>{{ event.titleKey | translate }}</h4>
+            <p>{{ event.descKey | translate }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta" appScrollReveal>
+  <div class="container about-cta__inner">
+    <div>
+      <h2>{{ 'ABOUT.CTA_TITLE' | translate }}</h2>
+      <p>{{ 'ABOUT.CTA_TEXT' | translate }}</p>
+    </div>
+    <a routerLink="/contact" class="btn-primary btn-primary--inverse">
+      {{ 'ABOUT.CTA_BUTTON' | translate }}
+    </a>
+  </div>
+</section>

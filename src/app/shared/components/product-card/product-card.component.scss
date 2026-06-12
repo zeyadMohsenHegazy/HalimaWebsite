@@ -1,0 +1,108 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.product-card {
+  @include card;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+
+  &--clickable {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba($color-primary, 0.14);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.product-card__image {
+  position: relative;
+  overflow: hidden;
+  background: $color-light;
+
+  app-lazy-image,
+  ::ng-deep .lazy-image {
+    display: block;
+    height: 100%;
+  }
+
+  ::ng-deep img {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .product-card--clickable:hover & ::ng-deep img {
+    transform: scale(1.08);
+  }
+}
+
+.product-card__view {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($color-primary, 0.88);
+  color: $color-white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    opacity 0.35s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  .product-card--clickable:hover & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  h3 {
+    font-size: 1.15rem;
+    margin-block: 0.5rem 0.75rem;
+    transition: color 0.3s ease;
+  }
+
+  p {
+    margin: 0;
+    color: $color-text-muted;
+    font-size: 0.95rem;
+    flex: 1;
+  }
+
+  .product-card--clickable:hover & h3 {
+    color: $color-primary;
+  }
+}
+
+.product-card__category {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $color-primary;
+  background: rgba($color-primary, 0.1);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}

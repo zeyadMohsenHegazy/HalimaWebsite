@@ -1,0 +1,22 @@
+<div
+  class="lazy-image"
+  [class.lazy-image--loaded]="loaded()"
+  [style.aspect-ratio]="aspectRatio"
+>
+  @if (!loaded()) {
+    <div class="lazy-image__skeleton skeleton-shimmer" aria-hidden="true"></div>
+  }
+
+  <img
+    [src]="src"
+    [alt]="alt"
+    [width]="width"
+    [height]="height"
+    [attr.loading]="loadingAttr"
+    [attr.fetchpriority]="fetchPriority"
+    [class.lazy-image__img--visible]="loaded()"
+    (load)="onLoad()"
+    (error)="onError()"
+    decoding="async"
+  />
+</div>

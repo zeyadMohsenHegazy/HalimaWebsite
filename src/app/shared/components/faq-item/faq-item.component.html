@@ -1,0 +1,32 @@
+<div class="faq-item" [class.faq-item--expanded]="expanded">
+  <h3 class="faq-item__heading">
+    <button
+      type="button"
+      class="faq-item__trigger"
+      (click)="onToggle()"
+      [attr.aria-expanded]="expanded"
+      [attr.id]="'faq-trigger-' + item.id"
+      [attr.aria-controls]="'faq-panel-' + item.id"
+    >
+      <span class="faq-item__trigger-inner">
+        <span class="faq-item__category">{{ categoryLabelKey | translate }}</span>
+        <span class="faq-item__question">{{ item.questionKey | translate }}</span>
+      </span>
+      <span class="faq-item__chevron" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </span>
+    </button>
+  </h3>
+
+  <div
+    class="faq-item__panel"
+    [class.faq-item__panel--open]="expanded"
+    [attr.id]="'faq-panel-' + item.id"
+    role="region"
+    [attr.aria-labelledby]="'faq-trigger-' + item.id"
+  >
+    <div class="faq-item__answer">
+      <p>{{ item.answerKey | translate }}</p>
+    </div>
+  </div>
+</div>

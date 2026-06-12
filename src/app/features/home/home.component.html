@@ -1,0 +1,235 @@
+<!-- SECTION 1: Hero Banner -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__inner container">
+    <div class="hero__content" appScrollReveal>
+      <span class="hero__badge">{{ 'HOME.HERO_BADGE' | translate }}</span>
+      <h1>{{ 'HOME.HERO_TITLE' | translate }}</h1>
+      <p class="hero__subtitle">{{ 'HOME.HERO_SUBTITLE' | translate }}</p>
+      <div class="hero__actions">
+        <a routerLink="/products" class="btn-primary hero__btn">
+          {{ 'HOME.HERO_CTA' | translate }}
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></svg>
+        </a>
+        <a routerLink="/contact" class="hero__btn-secondary">
+          {{ 'HOME.HERO_SECONDARY' | translate }}
+        </a>
+      </div>
+    </div>
+    <div class="hero__visual" appScrollReveal [revealDelay]="120" revealVariant="fade">
+      <div class="hero__image-frame">
+        <app-lazy-image
+          src="assets/products/juice/juice-2.jpeg"
+          alt="Halima premium products"
+          [width]="560"
+          [height]="420"
+          priority="high"
+          aspectRatio="4 / 3"
+        />
+        <div class="hero__image-accent" aria-hidden="true"></div>
+      </div>
+      <div class="hero__floating-card" aria-hidden="true">
+        <span class="hero__floating-icon">✓</span>
+        <div>
+          <strong>100%</strong>
+          <span>{{ 'HOME.WHY_2_TITLE' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: Why Choose Halima -->
+<section class="section section--light why">
+  <div class="container">
+    <app-section-title
+      appScrollReveal
+      [title]="'HOME.FEATURES_TITLE' | translate"
+      [subtitle]="'HOME.FEATURES_SUBTITLE' | translate"
+    />
+    <div class="why__grid">
+      @for (feature of features; track feature.id; let i = $index) {
+        <article class="why-card" appScrollReveal [revealDelay]="i * 80">
+          <div class="why-card__icon">
+            @switch (feature.icon) {
+              @case ('leaf') {
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+              }
+              @case ('shield') {
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+              }
+              @case ('nutrition') {
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5V8.84C18.87 8.4 20 6.73 20 5c0-1.1-.9-2-2-2h-2z"/></svg>
+              }
+              @case ('heart') {
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              }
+            }
+          </div>
+          <h3>{{ feature.titleKey | translate }}</h3>
+          <p>{{ feature.descriptionKey | translate }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: Our Categories -->
+<section class="section categories">
+  <div class="container">
+    <app-section-title
+      [title]="'HOME.CATEGORIES_TITLE' | translate"
+      [subtitle]="'HOME.CATEGORIES_SUBTITLE' | translate"
+    />
+    <div class="categories__grid">
+      @for (category of categories; track category.id; let i = $index) {
+        <article
+          class="category-card"
+          [class.category-card--milk]="category.id === 'milk'"
+          appScrollReveal
+          [revealDelay]="i * 100"
+        >
+          <app-lazy-image
+            [src]="category.image"
+            [alt]="category.titleKey | translate"
+            [width]="600"
+            [height]="450"
+            aspectRatio="4 / 3"
+          />
+          <div class="category-card__overlay"></div>
+          <div class="category-card__content">
+            <span class="category-card__tag">
+              {{ (category.id === 'milk' ? 'PRODUCTS.FILTER_MILK' : 'PRODUCTS.FILTER_JUICE') | translate }}
+            </span>
+            <h3>{{ category.titleKey | translate }}</h3>
+            <p>{{ category.descriptionKey | translate }}</p>
+            <a [routerLink]="category.link" class="category-card__btn">
+              {{ category.buttonKey | translate }}
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: Featured Products -->
+<section class="section section--light featured">
+  <div class="container">
+    <app-section-title
+      [title]="'HOME.PRODUCTS_TITLE' | translate"
+      [subtitle]="'HOME.PRODUCTS_SUBTITLE' | translate"
+    />
+    <div class="featured__grid">
+      @if (productsLoading()) {
+        @for (i of [1, 2, 3, 4]; track i) {
+          <app-product-skeleton />
+        }
+      } @else {
+        @for (product of featuredProducts(); track product.id; let i = $index) {
+          <div appScrollReveal [revealDelay]="i * 70">
+            <app-product-card [product]="product" [clickable]="false" />
+          </div>
+        }
+      }
+    </div>
+    <div class="featured__cta">
+      <a routerLink="/products" class="btn-primary">{{ 'HOME.VIEW_ALL' | translate }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: Our Story -->
+<section class="section story">
+  <div class="container story__inner">
+    <div class="story__media" appScrollReveal revealVariant="left">
+      <app-lazy-image
+        src="assets/products/juice/juice-5.jpeg"
+        alt="Halima story"
+        [width]="520"
+        [height]="390"
+        aspectRatio="4 / 3"
+      />
+      <div class="story__media-badge">
+        <span>Halima</span>
+        <small>{{ 'HOME.STORY_SUBTITLE' | translate }}</small>
+      </div>
+    </div>
+    <div class="story__content" appScrollReveal revealVariant="right" [revealDelay]="100">
+      <span class="story__eyebrow">{{ 'HOME.STORY_TITLE' | translate }}</span>
+      <h2>{{ 'HOME.STORY_SUBTITLE' | translate }}</h2>
+      <p>{{ 'HOME.STORY_TEXT' | translate }}</p>
+      <a routerLink="/about" class="btn-primary">{{ 'HOME.STORY_CTA' | translate }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: Statistics -->
+<section class="stats">
+  <div class="stats__pattern" aria-hidden="true"></div>
+  <div class="container">
+    <h2 class="stats__title">{{ 'HOME.STATS_TITLE' | translate }}</h2>
+    <div class="stats__grid">
+      @for (stat of stats; track stat.id) {
+        <div class="stats__item">
+          <div class="stats__value">
+            <app-animated-counter [target]="stat.value" [suffix]="stat.suffix ?? ''" />
+          </div>
+          <p class="stats__label">{{ stat.labelKey | translate }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: Customer Testimonials -->
+<section class="section testimonials">
+  <div class="container">
+    <app-section-title
+      [title]="'HOME.TESTIMONIALS_TITLE' | translate"
+      [subtitle]="'HOME.TESTIMONIALS_SUBTITLE' | translate"
+    />
+    <div class="testimonials__grid">
+      @for (item of testimonials; track item.id; let i = $index) {
+        <article class="testimonial-card" appScrollReveal [revealDelay]="i * 90">
+          <div class="testimonial-card__stars" aria-hidden="true">
+            @for (star of [1, 2, 3, 4, 5]; track star) {
+              <svg viewBox="0 0 24 24" [class.filled]="star <= item.rating"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            }
+          </div>
+          <blockquote>
+            <p>"{{ item.quoteKey | translate }}"</p>
+          </blockquote>
+          <footer>
+            <div class="testimonial-card__avatar" aria-hidden="true">
+              {{ (item.nameKey | translate).charAt(0) }}
+            </div>
+            <div>
+              <cite>{{ item.nameKey | translate }}</cite>
+              <span>{{ item.roleKey | translate }}</span>
+            </div>
+          </footer>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: Call To Action -->
+<section class="cta-final">
+  <div class="cta-final__bg" aria-hidden="true"></div>
+  <div class="container cta-final__inner">
+    <div class="cta-final__content" appScrollReveal>
+      <h2>{{ 'HOME.CTA_TITLE' | translate }}</h2>
+      <p>{{ 'HOME.CTA_TEXT' | translate }}</p>
+    </div>
+    <div class="cta-final__actions">
+      <a routerLink="/contact" class="btn-primary btn-primary--inverse">
+        {{ 'HOME.CTA_BUTTON' | translate }}
+      </a>
+      <a routerLink="/products" class="cta-final__link">
+        {{ 'HOME.HERO_CTA' | translate }}
+      </a>
+    </div>
+  </div>
+</section>

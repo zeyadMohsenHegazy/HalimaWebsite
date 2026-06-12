@@ -1,0 +1,122 @@
+@use '../../../../styles/variables' as *;
+
+.faq-item {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-sm;
+  overflow: hidden;
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  &--expanded {
+    border-color: rgba($color-primary, 0.4);
+    box-shadow: 0 8px 28px rgba($color-primary, 0.1);
+  }
+}
+
+.faq-item__heading {
+  margin: 0;
+}
+
+.faq-item__trigger {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: none;
+  background: transparent;
+  text-align: start;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: rgba($color-primary, 0.04);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: -2px;
+  }
+}
+
+.faq-item__trigger-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.faq-item__category {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-primary;
+  background: rgba($color-primary, 0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
+.faq-item__question {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $color-dark;
+  line-height: 1.45;
+}
+
+.faq-item__chevron {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba($color-primary, 0.1);
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+}
+
+.faq-item--expanded .faq-item__chevron {
+  transform: rotate(180deg);
+  background: $color-primary;
+  color: $color-white;
+}
+
+.faq-item__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &--open {
+    grid-template-rows: 1fr;
+  }
+}
+
+.faq-item__answer {
+  overflow: hidden;
+
+  p {
+    margin: 0;
+    padding: 0 1.5rem 1.35rem;
+    color: $color-text-muted;
+    line-height: 1.75;
+    font-size: 0.95rem;
+    border-block-start: 1px solid rgba($color-border, 0.8);
+    padding-block-start: 1.15rem;
+  }
+}

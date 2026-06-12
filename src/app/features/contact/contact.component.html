@@ -1,0 +1,193 @@
+<app-page-hero
+  [title]="'CONTACT.HERO_TITLE' | translate"
+  [subtitle]="'CONTACT.HERO_SUBTITLE' | translate"
+/>
+
+<section class="section contact-main">
+  <div class="container contact-grid">
+    <!-- Contact Information -->
+    <aside class="contact-info" aria-labelledby="contact-info-heading" appScrollReveal revealVariant="left">
+      <h2 id="contact-info-heading">{{ 'CONTACT.INFO_TITLE' | translate }}</h2>
+      <p class="contact-info__intro">{{ 'CONTACT.INFO_INTRO' | translate }}</p>
+
+      <ul class="contact-info__list">
+        <li class="contact-info__item">
+          <span class="contact-info__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          </span>
+          <div>
+            <span class="contact-info__label">{{ 'CONTACT.INFO_ADDRESS_LABEL' | translate }}</span>
+            <p>{{ 'FOOTER.ADDRESS' | translate }}</p>
+          </div>
+        </li>
+
+        <li class="contact-info__item">
+          <span class="contact-info__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </span>
+          <div>
+            <span class="contact-info__label">{{ 'CONTACT.INFO_PHONE_LABEL' | translate }}</span>
+            <p><a href="tel:+201000000000">{{ 'FOOTER.PHONE' | translate }}</a></p>
+          </div>
+        </li>
+
+        <li class="contact-info__item">
+          <span class="contact-info__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </span>
+          <div>
+            <span class="contact-info__label">{{ 'CONTACT.INFO_EMAIL_LABEL' | translate }}</span>
+            <p><a href="mailto:info@halima.com">{{ 'FOOTER.EMAIL' | translate }}</a></p>
+          </div>
+        </li>
+
+        <li class="contact-info__item">
+          <span class="contact-info__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </span>
+          <div>
+            <span class="contact-info__label">{{ 'CONTACT.INFO_HOURS_LABEL' | translate }}</span>
+            <p>{{ 'CONTACT.INFO_HOURS' | translate }}</p>
+          </div>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Contact Form -->
+    <div class="contact-form-wrap" appScrollReveal revealVariant="right" [revealDelay]="80">
+      <h2 class="contact-form-wrap__title">{{ 'CONTACT.FORM_TITLE' | translate }}</h2>
+      <p class="contact-form-wrap__subtitle">{{ 'CONTACT.FORM_SUBTITLE' | translate }}</p>
+
+      <form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-row">
+          <div class="form-group" [class.form-group--invalid]="hasFieldError('fullName')">
+            <label for="fullName">{{ 'CONTACT.FORM_NAME' | translate }} <span aria-hidden="true">*</span></label>
+            <input
+              id="fullName"
+              type="text"
+              formControlName="fullName"
+              [attr.aria-invalid]="hasFieldError('fullName')"
+              [attr.aria-describedby]="hasFieldError('fullName') ? 'fullName-error' : null"
+              autocomplete="name"
+            />
+            @if (getFieldErrorKey('fullName'); as errorKey) {
+              <p id="fullName-error" class="form-field-error" role="alert">{{ errorKey | translate }}</p>
+            }
+          </div>
+
+          <div class="form-group" [class.form-group--invalid]="hasFieldError('email')">
+            <label for="email">{{ 'CONTACT.FORM_EMAIL' | translate }} <span aria-hidden="true">*</span></label>
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              [attr.aria-invalid]="hasFieldError('email')"
+              [attr.aria-describedby]="hasFieldError('email') ? 'email-error' : null"
+              autocomplete="email"
+            />
+            @if (getFieldErrorKey('email'); as errorKey) {
+              <p id="email-error" class="form-field-error" role="alert">{{ errorKey | translate }}</p>
+            }
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" [class.form-group--invalid]="hasFieldError('phone')">
+            <label for="phone">{{ 'CONTACT.FORM_PHONE' | translate }} <span aria-hidden="true">*</span></label>
+            <input
+              id="phone"
+              type="tel"
+              formControlName="phone"
+              [attr.aria-invalid]="hasFieldError('phone')"
+              [attr.aria-describedby]="hasFieldError('phone') ? 'phone-error' : null"
+              autocomplete="tel"
+              [placeholder]="'CONTACT.FORM_PHONE_PLACEHOLDER' | translate"
+            />
+            @if (getFieldErrorKey('phone'); as errorKey) {
+              <p id="phone-error" class="form-field-error" role="alert">{{ errorKey | translate }}</p>
+            }
+          </div>
+
+          <div class="form-group" [class.form-group--invalid]="hasFieldError('subject')">
+            <label for="subject">{{ 'CONTACT.FORM_SUBJECT' | translate }} <span aria-hidden="true">*</span></label>
+            <input
+              id="subject"
+              type="text"
+              formControlName="subject"
+              [attr.aria-invalid]="hasFieldError('subject')"
+              [attr.aria-describedby]="hasFieldError('subject') ? 'subject-error' : null"
+            />
+            @if (getFieldErrorKey('subject'); as errorKey) {
+              <p id="subject-error" class="form-field-error" role="alert">{{ errorKey | translate }}</p>
+            }
+          </div>
+        </div>
+
+        <div class="form-group" [class.form-group--invalid]="hasFieldError('message')">
+          <label for="message">{{ 'CONTACT.FORM_MESSAGE' | translate }} <span aria-hidden="true">*</span></label>
+          <textarea
+            id="message"
+            rows="5"
+            formControlName="message"
+            [attr.aria-invalid]="hasFieldError('message')"
+            [attr.aria-describedby]="hasFieldError('message') ? 'message-error' : null"
+          ></textarea>
+          @if (getFieldErrorKey('message'); as errorKey) {
+            <p id="message-error" class="form-field-error" role="alert">{{ errorKey | translate }}</p>
+          }
+        </div>
+
+        @if (isSuccess()) {
+          <div class="form-alert form-alert--success" role="status">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <p>{{ 'CONTACT.FORM_SUCCESS' | translate }}</p>
+          </div>
+        }
+
+        @if (isError()) {
+          <div class="form-alert form-alert--error" role="alert">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <p>{{ 'CONTACT.FORM_SEND_ERROR' | translate }}</p>
+          </div>
+        }
+
+        <button type="submit" class="btn-primary contact-form__submit" [disabled]="isLoading()">
+          @if (isLoading()) {
+            <span class="contact-form__spinner" aria-hidden="true"></span>
+            {{ 'CONTACT.FORM_SUBMITTING' | translate }}
+          } @else {
+            {{ 'CONTACT.FORM_SUBMIT' | translate }}
+          }
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Google Maps Placeholder -->
+<section class="section contact-map-section" aria-labelledby="contact-map-heading">
+  <div class="container">
+    <div class="contact-map-header" appScrollReveal>
+      <h2 id="contact-map-heading">{{ 'CONTACT.MAP_TITLE' | translate }}</h2>
+      <p>{{ 'CONTACT.MAP_SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="contact-map" role="img" [attr.aria-label]="'CONTACT.MAP_ARIA' | translate" appScrollReveal [revealDelay]="100">
+      <div class="contact-map__placeholder">
+        <span class="contact-map__pin" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+        </span>
+        <p class="contact-map__label">{{ mapLocation.labelKey | translate }}</p>
+        <p class="contact-map__hint">{{ 'CONTACT.MAP_PLACEHOLDER' | translate }}</p>
+        <a
+          class="contact-map__link"
+          [href]="'https://www.google.com/maps/search/?api=1&query=' + mapLocation.lat + ',' + mapLocation.lng"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ 'CONTACT.MAP_OPEN' | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

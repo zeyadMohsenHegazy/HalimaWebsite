@@ -1,0 +1,72 @@
+@use 'variables' as *;
+
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-inline: auto;
+  padding-inline: $container-padding;
+}
+
+@mixin section-padding {
+  padding-block: $section-spacing;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background-color: $color-primary;
+  color: $color-white;
+  border: none;
+  border-radius: $border-radius-sm;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color $transition, transform $transition;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken($color-primary, 8%);
+    transform: translateY(-2px);
+  }
+}
+
+@mixin card {
+  background: $color-white;
+  border-radius: $border-radius;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+  transition: box-shadow $transition, transform $transition;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-4px);
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: 576px) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}

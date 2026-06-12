@@ -1,0 +1,609 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-primary;
+  margin-block-end: 0.75rem;
+}
+
+// ─── Introduction ──────────────────────────────────────────────
+.about-intro__grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
+  }
+}
+
+.about-intro__content {
+  h2 {
+    font-size: clamp(1.85rem, 4vw, 2.5rem);
+    margin-block-end: 1.25rem;
+    line-height: 1.2;
+  }
+
+  p {
+    color: $color-text-muted;
+    line-height: 1.8;
+    margin-block-end: 1rem;
+  }
+}
+
+.about-intro__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-block-start: 2rem;
+}
+
+.mini-stat {
+  padding: 1.25rem 1rem;
+  background: $color-light;
+  border-radius: $border-radius-sm;
+  border-inline-start: 3px solid $color-primary;
+  text-align: center;
+
+  strong {
+    display: block;
+    font-size: 1.35rem;
+    color: $color-primary;
+    margin-block-end: 0.25rem;
+  }
+
+  span {
+    font-size: 0.8rem;
+    color: $color-text-muted;
+    font-weight: 600;
+  }
+}
+
+.about-intro__media {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+
+  img {
+    width: 100%;
+    min-height: 340px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+}
+
+.about-intro__badge {
+  position: absolute;
+  inset-block-end: 1.5rem;
+  inset-inline-end: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba($color-white, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: $border-radius-sm;
+  text-align: center;
+
+  span {
+    display: block;
+    font-weight: 800;
+    color: $color-primary;
+    font-size: 1.15rem;
+  }
+
+  small {
+    font-size: 0.75rem;
+    color: $color-text-muted;
+  }
+}
+
+// ─── Vision & Mission ──────────────────────────────────────────
+.vision-mission__grid {
+  display: grid;
+  gap: 1.5rem;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.vm-card {
+  @include card;
+  padding: 2.25rem 2rem;
+  border: 1px solid rgba($color-border, 0.8);
+  box-shadow: none;
+  height: 100%;
+  transition:
+    box-shadow 0.4s ease,
+    transform 0.4s ease,
+    border-color 0.4s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba($color-primary, 0.1);
+    border-color: rgba($color-primary, 0.2);
+  }
+
+  h3 {
+    color: $color-primary;
+    font-size: 1.35rem;
+    margin-block: 1rem;
+  }
+
+  p {
+    color: $color-text-muted;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  &--vision {
+    background: linear-gradient(145deg, $color-white 0%, rgba($color-primary, 0.04) 100%);
+  }
+
+  &--mission {
+    background: linear-gradient(145deg, $color-white 0%, $color-light 100%);
+  }
+}
+
+.vm-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba($color-primary, 0.12);
+  color: $color-primary;
+  @include flex-center;
+
+  svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+  }
+}
+
+.vm-card__quote {
+  margin: 1.5rem 0 0;
+  padding: 1rem 1.25rem;
+  border-inline-start: 3px solid $color-primary;
+  background: rgba($color-primary, 0.06);
+  border-radius: 0 $border-radius-sm $border-radius-sm 0;
+  font-style: italic;
+  color: $color-dark;
+  font-weight: 500;
+}
+
+.vm-card__list {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-inline-start: 1.5rem;
+    margin-block-end: 0.65rem;
+    color: $color-text-muted;
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      inset-inline-start: 0;
+      color: $color-primary;
+      font-weight: 700;
+    }
+  }
+}
+
+// ─── Values ────────────────────────────────────────────────────
+.values-grid {
+  display: grid;
+  gap: 1.5rem;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.value-card {
+  position: relative;
+  padding: 2rem 1.5rem;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $color-primary, lighten($color-primary, 12%));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  html[dir='rtl'] &::after {
+    transform-origin: right;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-md;
+    border-color: rgba($color-primary, 0.25);
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  h4 {
+    margin-block: 0.75rem 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: $color-text-muted;
+    line-height: 1.65;
+  }
+}
+
+.value-card__number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: rgba($color-primary, 0.2);
+  line-height: 1;
+}
+
+// ─── Production Quality ────────────────────────────────────────
+.quality-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-block-end: 2.5rem;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.quality-card {
+  padding: 1.75rem 1.5rem;
+  background: $color-white;
+  border-radius: $border-radius;
+  border: 1px solid $color-border;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-sm;
+  }
+
+  h4 {
+    margin-block: 0.75rem 0.5rem;
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: $color-text-muted;
+    line-height: 1.6;
+  }
+}
+
+.quality-card__step {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: $color-primary;
+  color: $color-white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  @include flex-center;
+}
+
+.quality-showcase {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+
+  img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// ─── Distribution ──────────────────────────────────────────────
+.about-distribution__grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin-block: 0.5rem 1rem;
+    line-height: 1.3;
+  }
+}
+
+.about-distribution__text {
+  color: $color-text-muted;
+  line-height: 1.8;
+  margin-block-end: 1.75rem;
+}
+
+.dist-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.dist-stat {
+  strong {
+    display: block;
+    font-size: 1.75rem;
+    color: $color-primary;
+    line-height: 1.2;
+  }
+
+  span {
+    font-size: 0.85rem;
+    color: $color-text-muted;
+    font-weight: 600;
+  }
+}
+
+.regions-card {
+  @include card;
+  padding: 2rem;
+  background: linear-gradient(160deg, $color-dark 0%, lighten($color-dark, 8%) 100%);
+  color: $color-white;
+
+  h3 {
+    color: $color-white;
+    margin-block-end: 1.25rem;
+    font-size: 1.1rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-block: 0.75rem;
+    border-block-end: 1px solid rgba($color-white, 0.1);
+    font-size: 0.95rem;
+    color: rgba($color-white, 0.9);
+    transition: padding-inline-start 0.3s ease;
+
+    &:last-child {
+      border-block-end: none;
+    }
+
+    &:hover {
+      padding-inline-start: 0.35rem;
+      color: $color-white;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: $color-primary;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// ─── Sustainability ────────────────────────────────────────────
+.sustain-grid {
+  display: grid;
+  gap: 1.5rem;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.sustain-card {
+  padding: 2rem 1.5rem;
+  background: $color-white;
+  border-radius: $border-radius;
+  border: 1px solid $color-border;
+  text-align: center;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 36px rgba(34, 139, 34, 0.1);
+    border-color: rgba(#2e7d32, 0.3);
+  }
+
+  h4 {
+    margin-block: 1rem 0.65rem;
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: $color-text-muted;
+    line-height: 1.6;
+  }
+}
+
+.sustain-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+// ─── Timeline ──────────────────────────────────────────────────
+.timeline {
+  position: relative;
+  max-width: 720px;
+  margin-inline: auto;
+  padding-inline-start: 5.5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset-block: 8px 8px;
+    inset-inline-start: 1.35rem;
+    width: 3px;
+    background: linear-gradient(180deg, $color-primary, rgba($color-primary, 0.15));
+    border-radius: 3px;
+  }
+
+  html[dir='rtl'] & {
+    padding-inline-start: 0;
+    padding-inline-end: 5.5rem;
+
+    &::before {
+      inset-inline-start: auto;
+      inset-inline-end: 1.35rem;
+    }
+  }
+}
+
+.timeline__item {
+  position: relative;
+  padding-block-end: 2rem;
+
+  &--last {
+    padding-block-end: 0;
+  }
+}
+
+.timeline__year {
+  position: absolute;
+  inset-inline-start: -5.5rem;
+  inset-block-start: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  padding: 0.4rem 0.7rem;
+  background: $color-primary;
+  color: $color-white;
+  font-weight: 800;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba($color-primary, 0.35);
+
+  html[dir='rtl'] & {
+    inset-inline-start: auto;
+    inset-inline-end: -5.5rem;
+  }
+}
+
+.timeline__content {
+  padding: 1.25rem 1.5rem;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+
+  .timeline__item:hover & {
+    box-shadow: $shadow-sm;
+    border-color: rgba($color-primary, 0.25);
+  }
+
+  h4 {
+    margin-block-end: 0.5rem;
+    color: $color-dark;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: $color-text-muted;
+    line-height: 1.65;
+  }
+}
+
+// ─── CTA ───────────────────────────────────────────────────────
+.about-cta {
+  background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 8%) 100%);
+  padding-block: 4.5rem;
+  color: $color-white;
+}
+
+.about-cta__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+
+  @include respond-to(md) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  h2 {
+    color: $color-white;
+    font-size: clamp(1.65rem, 4vw, 2.25rem);
+    margin-block-end: 0.75rem;
+  }
+
+  p {
+    margin: 0;
+    color: rgba($color-white, 0.9);
+    max-width: 52ch;
+    line-height: 1.7;
+  }
+}
+
+.btn-primary--inverse {
+  background: $color-white;
+  color: $color-primary;
+  white-space: nowrap;
+
+  &:hover {
+    background: $color-light;
+  }
+}

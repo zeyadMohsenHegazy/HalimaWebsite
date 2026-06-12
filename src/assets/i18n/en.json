@@ -1,0 +1,359 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About Us",
+    "PRODUCTS": "Products",
+    "FAQ": "FAQ",
+    "CONTACT": "Contact Us",
+    "MENU": "Menu",
+    "HOME_ARIA": "Halima Home",
+    "MAIN_NAV": "Main navigation",
+    "TOGGLE_MENU": "Toggle navigation menu",
+    "CLOSE_MENU": "Close menu"
+  },
+  "FOOTER": {
+    "TAGLINE": "Premium dairy and juice products crafted with care for your family's health.",
+    "NAV_ARIA": "Footer navigation",
+    "QUICK_LINKS": "Quick Links",
+    "FOLLOW_US": "Follow Us",
+    "CONTACT_INFO": "Contact Info",
+    "ADDRESS": "Industrial Zone, Cairo, Egypt",
+    "PHONE": "+20 100 000 0000",
+    "EMAIL": "info@halima.com",
+    "RIGHTS": "All rights reserved."
+  },
+  "HOME": {
+    "META_TITLE": "Home",
+    "META_DESCRIPTION": "Halima offers premium dairy and fresh juice products made with the highest quality standards for families across Egypt.",
+    "META_KEYWORDS": "Halima, dairy, juice, milk, fresh juice, Egypt",
+    "HERO_BADGE": "Premium Dairy & Juice",
+    "HERO_TITLE": "Freshness You Can Trust",
+    "HERO_SUBTITLE": "Premium Milk and Juice Products Made for Every Family",
+    "HERO_CTA": "Explore Products",
+    "HERO_SECONDARY": "Contact Us",
+    "FEATURES_TITLE": "Why Choose Halima",
+    "FEATURES_SUBTITLE": "Quality you can taste, trust you can count on — from our family to yours.",
+    "WHY_1_TITLE": "Fresh Ingredients",
+    "WHY_1_DESC": "Sourced from trusted farms and orchards, selected at peak freshness for every batch.",
+    "WHY_2_TITLE": "High Quality Standards",
+    "WHY_2_DESC": "Rigorous testing and modern production ensure safety and consistency in every product.",
+    "WHY_3_TITLE": "Rich Nutrition",
+    "WHY_3_DESC": "Wholesome dairy and vitamin-rich juices crafted to support your family's daily wellness.",
+    "WHY_4_TITLE": "Trusted by Families",
+    "WHY_4_DESC": "Loved across households for our commitment to purity, taste, and reliability.",
+    "CATEGORIES_TITLE": "Our Categories",
+    "CATEGORIES_SUBTITLE": "Explore our premium range of dairy and refreshing juices.",
+    "CATEGORY_MILK_TITLE": "Milk Products",
+    "CATEGORY_MILK_DESC": "Creamy, nutritious milk for every moment of your day — from breakfast to bedtime.",
+    "CATEGORY_MILK_BTN": "View Milk Products",
+    "CATEGORY_JUICE_TITLE": "Juice Products",
+    "CATEGORY_JUICE_DESC": "Vibrant fruit juices bursting with natural flavor and essential vitamins.",
+    "CATEGORY_JUICE_BTN": "View Juice Products",
+    "PRODUCTS_TITLE": "Featured Products",
+    "PRODUCTS_SUBTITLE": "Handpicked favorites from our premium collection.",
+    "VIEW_ALL": "View All Products",
+    "STORY_TITLE": "Our Story",
+    "STORY_SUBTITLE": "A journey of passion, purity, and purpose.",
+    "STORY_TEXT": "Halima was born from a simple belief: every family deserves access to safe, delicious, and nutritious food. From our first carton of milk to our expanding juice line, we have grown by staying true to quality — investing in modern facilities, skilled teams, and the communities we serve.",
+    "STORY_CTA": "Discover Our Journey",
+    "STATS_TITLE": "Halima in Numbers",
+    "STAT_YEARS": "Years of Experience",
+    "STAT_CUSTOMERS": "Happy Customers",
+    "STAT_PRODUCTS": "Products",
+    "STAT_AREAS": "Distribution Areas",
+    "TESTIMONIALS_TITLE": "What Our Customers Say",
+    "TESTIMONIALS_SUBTITLE": "Real stories from families who trust Halima every day.",
+    "TESTIMONIAL_1_NAME": "Nadia Hassan",
+    "TESTIMONIAL_1_ROLE": "Mother of Three, Cairo",
+    "TESTIMONIAL_1_QUOTE": "Halima milk has been on our breakfast table for years. The quality is consistent and my children love the taste.",
+    "TESTIMONIAL_2_NAME": "Ahmed El-Sayed",
+    "TESTIMONIAL_2_ROLE": "Retail Store Owner, Giza",
+    "TESTIMONIAL_2_QUOTE": "Our customers always ask for Halima. The brand delivers on freshness and the products sell themselves.",
+    "TESTIMONIAL_3_NAME": "Layla Mahmoud",
+    "TESTIMONIAL_3_ROLE": "Nutritionist, Alexandria",
+    "TESTIMONIAL_3_QUOTE": "I recommend Halima juices to my clients for their natural ingredients and balanced nutritional profile.",
+    "CTA_TITLE": "Become Part of the Halima Family",
+    "CTA_TEXT": "Join thousands of families and partners who trust Halima for premium dairy and juice products every day.",
+    "CTA_BUTTON": "Get In Touch"
+  },
+  "ABOUT": {
+    "META_TITLE": "About Us",
+    "META_DESCRIPTION": "Learn about Halima's mission, values, production quality, distribution network, and commitment to sustainable dairy and juice manufacturing.",
+    "META_KEYWORDS": "Halima about, dairy company, juice manufacturer, Egypt FMCG",
+    "HERO_TITLE": "About Halima",
+    "HERO_SUBTITLE": "Nourishing families with premium dairy and juice products since 1998.",
+    "INTRO_EYEBROW": "Company Introduction",
+    "INTRO_TITLE": "A Trusted Name in Dairy & Juice",
+    "INTRO_P1": "Halima is a leading Egyptian manufacturer of premium milk and fruit juice products, serving households, retailers, and hospitality partners across the nation. Built on decades of expertise, we combine traditional care with modern food science to deliver freshness families can rely on.",
+    "INTRO_P2": "From our state-of-the-art facility in Cairo's industrial zone, we oversee every step — sourcing, processing, packaging, and distribution — ensuring that the Halima name stands for purity, nutrition, and consistent taste in every product.",
+    "INTRO_STAT_1": "25+ Years",
+    "INTRO_STAT_1_LABEL": "Industry Experience",
+    "INTRO_STAT_2": "50+",
+    "INTRO_STAT_2_LABEL": "Product SKUs",
+    "INTRO_STAT_3": "15+",
+    "INTRO_STAT_3_LABEL": "Governorates Served",
+    "VISION_TITLE": "Our Vision",
+    "VISION_TEXT": "To be the most trusted dairy and juice brand in the Middle East and North Africa — recognized for uncompromising quality, nutritional excellence, and a positive impact on the communities we serve.",
+    "VISION_QUOTE": "Leading with freshness, growing with purpose.",
+    "MISSION_TITLE": "Our Mission",
+    "MISSION_TEXT": "To produce safe, delicious, and nutritious dairy and juice products that enrich everyday life, while upholding the highest standards of food safety, operational integrity, and customer satisfaction.",
+    "MISSION_POINT_1": "Deliver consistent quality from farm to family table",
+    "MISSION_POINT_2": "Innovate responsibly across products and packaging",
+    "MISSION_POINT_3": "Build lasting partnerships with retailers and communities",
+    "VALUES_TITLE": "Our Values",
+    "VALUES_SUBTITLE": "The principles that guide every decision we make.",
+    "VALUE_1_TITLE": "Integrity",
+    "VALUE_1_DESC": "We operate with honesty and transparency across sourcing, production, and customer relationships.",
+    "VALUE_2_TITLE": "Quality",
+    "VALUE_2_DESC": "Excellence is embedded in every batch — we never compromise on safety or taste.",
+    "VALUE_3_TITLE": "Innovation",
+    "VALUE_3_DESC": "We invest in modern technology, recipes, and packaging to meet evolving consumer needs.",
+    "VALUE_4_TITLE": "Community",
+    "VALUE_4_DESC": "We support local farmers, employees, and the families who trust Halima every day.",
+    "QUALITY_TITLE": "Production Quality",
+    "QUALITY_SUBTITLE": "Rigorous standards at every stage of our manufacturing process.",
+    "QUALITY_1_TITLE": "Premium Sourcing",
+    "QUALITY_1_DESC": "Milk from certified partner farms and fruit from trusted growers, inspected upon arrival.",
+    "QUALITY_2_TITLE": "Advanced Processing",
+    "QUALITY_2_DESC": "Automated pasteurization and aseptic filling lines maintain freshness and extend shelf life safely.",
+    "QUALITY_3_TITLE": "Laboratory Testing",
+    "QUALITY_3_DESC": "In-house QA labs conduct microbiological and chemical tests on every production run.",
+    "QUALITY_4_TITLE": "Secure Packaging",
+    "QUALITY_4_DESC": "Food-grade materials and tamper-evident seals protect product integrity to the point of sale.",
+    "DIST_TITLE": "Distribution Network",
+    "DIST_SUBTITLE": "Reaching families and retailers across Egypt through a reliable cold-chain network.",
+    "DIST_TEXT": "Halima products are available in major supermarket chains, neighborhood grocers, schools, and hospitality venues. Our refrigerated fleet and regional distribution hubs ensure products arrive fresh and on time.",
+    "DIST_REGIONS_TITLE": "Coverage Areas",
+    "DIST_REGION_1": "Greater Cairo & Giza",
+    "DIST_REGION_2": "Alexandria & Mediterranean Coast",
+    "DIST_REGION_3": "Delta Region",
+    "DIST_REGION_4": "Upper Egypt",
+    "DIST_REGION_5": "Sinai & Canal Cities",
+    "DIST_STAT_1": "500+",
+    "DIST_STAT_1_LABEL": "Retail Partners",
+    "DIST_STAT_2": "24h",
+    "DIST_STAT_2_LABEL": "Cold-Chain Delivery",
+    "SUSTAIN_TITLE": "Sustainability",
+    "SUSTAIN_SUBTITLE": "Responsible manufacturing for a healthier planet and stronger communities.",
+    "SUSTAIN_1_TITLE": "Water Stewardship",
+    "SUSTAIN_1_DESC": "Recycling and filtration systems reduce water consumption across our production facility.",
+    "SUSTAIN_2_TITLE": "Eco-Friendly Packaging",
+    "SUSTAIN_2_DESC": "Transitioning to recyclable materials and lightweight cartons to lower environmental impact.",
+    "SUSTAIN_3_TITLE": "Energy Efficiency",
+    "SUSTAIN_3_DESC": "Solar-assisted power and energy-efficient equipment lower our carbon footprint year over year.",
+    "SUSTAIN_4_TITLE": "Community Programs",
+    "SUSTAIN_4_DESC": "Nutrition awareness campaigns and local employment initiatives in the communities we serve.",
+    "TIMELINE_TITLE": "Company Timeline",
+    "TIMELINE_SUBTITLE": "Key milestones in the Halima journey.",
+    "TIMELINE_1_TITLE": "Halima Founded",
+    "TIMELINE_1_DESC": "Opened our first dairy processing plant in Cairo with a focus on fresh milk delivery.",
+    "TIMELINE_2_TITLE": "Regional Expansion",
+    "TIMELINE_2_DESC": "Expanded distribution across the Delta and launched our first long-life milk line.",
+    "TIMELINE_3_TITLE": "Juice Division Launched",
+    "TIMELINE_3_DESC": "Introduced a dedicated fruit juice production line with six signature flavors.",
+    "TIMELINE_4_TITLE": "ISO Certification",
+    "TIMELINE_4_DESC": "Achieved international food safety certification and upgraded to a fully automated facility.",
+    "TIMELINE_5_TITLE": "National Brand Leader",
+    "TIMELINE_5_DESC": "Surpassed 500 retail partners and introduced sustainable packaging across core product lines.",
+    "CTA_TITLE": "Partner With Halima",
+    "CTA_TEXT": "Whether you are a retailer, distributor, or customer — we would love to connect.",
+    "CTA_BUTTON": "Contact Us"
+  },
+  "PRODUCTS": {
+    "META_TITLE": "Products",
+    "META_DESCRIPTION": "Browse Halima's full range of fresh juices and premium dairy products.",
+    "META_KEYWORDS": "Halima products, juice, milk, dairy",
+    "HERO_TITLE": "Our Products",
+    "HERO_SUBTITLE": "Fresh juices and dairy products crafted for every occasion.",
+    "FILTER_ALL": "All",
+    "FILTER_JUICE": "Juices",
+    "FILTER_MILK": "Dairy",
+    "CATEGORIES": "Product categories",
+    "SEARCH_PLACEHOLDER": "Search products...",
+    "SEARCH_ARIA": "Search products",
+    "RESULTS": "Results",
+    "LOADING": "Loading products...",
+    "EMPTY": "No products found. Try a different search or category.",
+    "CLEAR_SEARCH": "Clear search",
+    "VIEW_DETAILS": "View details",
+    "MODAL_CLOSE": "Close",
+    "MODAL_CTA": "Inquire Now",
+    "PAGINATION": "Products pagination",
+    "PREV": "Previous",
+    "NEXT": "Next",
+    "ITEMS": {
+      "JUICE_1": {
+        "NAME": "Tropical Mango Juice",
+        "DESCRIPTION": "Rich mango flavor packed with vitamins in every refreshing sip."
+      },
+      "JUICE_2": {
+        "NAME": "Classic Orange Juice",
+        "DESCRIPTION": "Sun-ripened oranges pressed for a bright, zesty morning boost."
+      },
+      "JUICE_3": {
+        "NAME": "Mixed Fruit Delight",
+        "DESCRIPTION": "A balanced blend of seasonal fruits for the whole family."
+      },
+      "JUICE_4": {
+        "NAME": "Crisp Apple Juice",
+        "DESCRIPTION": "Naturally sweet apple juice with a clean, smooth finish."
+      },
+      "JUICE_5": {
+        "NAME": "Guava Fresh",
+        "DESCRIPTION": "Authentic guava taste with a fragrant, tropical aroma."
+      },
+      "JUICE_6": {
+        "NAME": "Pineapple Splash",
+        "DESCRIPTION": "Tangy pineapple juice that energizes and refreshes."
+      },
+      "MILK_1": {
+        "NAME": "Full Cream Milk",
+        "DESCRIPTION": "Rich, creamy milk sourced from trusted farms for daily nutrition."
+      },
+      "MILK_2": {
+        "NAME": "Low Fat Milk",
+        "DESCRIPTION": "Light and wholesome milk with all the essential nutrients."
+      }
+    }
+  },
+  "FAQ": {
+    "META_TITLE": "FAQ",
+    "META_DESCRIPTION": "Find answers to frequently asked questions about Halima milk and juice products, quality standards, storage, distribution, and customer support.",
+    "META_KEYWORDS": "Halima FAQ, dairy questions, juice FAQ, milk storage, product quality",
+    "HERO_TITLE": "Frequently Asked Questions",
+    "HERO_SUBTITLE": "Everything you need to know about Halima products and services.",
+    "FILTER_LABEL": "Filter questions by category",
+    "CAT_ALL": "All",
+    "CAT_MILK": "Milk Products",
+    "CAT_JUICE": "Juice Products",
+    "CAT_QUALITY": "Quality Assurance",
+    "CAT_STORAGE": "Storage",
+    "CAT_DISTRIBUTION": "Distribution",
+    "CAT_SUPPORT": "Customer Support",
+    "EMPTY": "No questions found in this category.",
+    "CTA_TITLE": "Still have questions?",
+    "CTA_TEXT": "Our customer support team is ready to help with product details, orders, partnerships, and quality concerns.",
+    "CTA_BUTTON": "Contact Us",
+    "ITEMS": {
+      "Q1": {
+        "QUESTION": "What types of milk products does Halima offer?",
+        "ANSWER": "Halima offers a full range of dairy products including fresh full-cream milk, low-fat milk, flavored milk, and long-life UHT milk — all produced from carefully sourced milk and packaged for everyday family use."
+      },
+      "Q2": {
+        "QUESTION": "Is Halima milk suitable for children and families?",
+        "ANSWER": "Yes. Halima milk is pasteurized and produced to meet strict food safety standards. It provides essential calcium and protein, making it a wholesome choice for children and adults when consumed as part of a balanced diet."
+      },
+      "Q3": {
+        "QUESTION": "Is Halima milk pasteurized and homogenized?",
+        "ANSWER": "All Halima fresh milk undergoes pasteurization to eliminate harmful bacteria and homogenization for a smooth, consistent texture. UHT variants are ultra-heat treated for extended shelf life without compromising safety."
+      },
+      "Q4": {
+        "QUESTION": "What flavors of juice does Halima produce?",
+        "ANSWER": "Our juice line includes popular flavors such as orange, mango, mixed fruit, apple, guava, and pineapple. Each variety is crafted from quality fruit concentrates and natural flavors to deliver a refreshing taste."
+      },
+      "Q5": {
+        "QUESTION": "Do Halima juices contain added sugar?",
+        "ANSWER": "Some Halima juice varieties contain added sugar to balance natural fruit acidity and enhance taste. Full ingredient and nutritional information is printed on every package so you can make informed choices for your family."
+      },
+      "Q6": {
+        "QUESTION": "Are Halima juices suitable for daily consumption?",
+        "ANSWER": "Halima juices can be enjoyed as part of a balanced diet. They provide vitamins and hydration, though we recommend moderate consumption and pairing them with whole fruits, vegetables, and dairy for optimal nutrition."
+      },
+      "Q7": {
+        "QUESTION": "What quality certifications does Halima hold?",
+        "ANSWER": "Halima operates under internationally recognized food safety management systems including ISO 22000 and HACCP protocols. Our facility is regularly audited to ensure compliance with Egyptian and international standards."
+      },
+      "Q8": {
+        "QUESTION": "How does Halima test products before release?",
+        "ANSWER": "Every production batch undergoes laboratory testing for microbiological safety, sensory quality, and packaging integrity. Products are released only after passing our internal quality checkpoints and documented batch approval process."
+      },
+      "Q9": {
+        "QUESTION": "Do your products contain artificial preservatives?",
+        "ANSWER": "We prioritize natural ingredients and use preservatives only when necessary to maintain freshness and safety, always within approved regulatory limits. Full ingredient lists are available on all product labels."
+      },
+      "Q10": {
+        "QUESTION": "How should I store Halima milk after opening?",
+        "ANSWER": "Once opened, refrigerate Halima milk immediately at 2–6°C. Keep the carton tightly closed, consume within 3–4 days, and never leave it at room temperature for extended periods."
+      },
+      "Q11": {
+        "QUESTION": "How should I store unopened and opened Halima juice?",
+        "ANSWER": "Store unopened juice in a cool, dry place away from direct sunlight until the best-before date. After opening, refrigerate at 2–6°C and consume within 3–5 days for best taste and freshness."
+      },
+      "Q12": {
+        "QUESTION": "Where can I buy Halima products in Egypt?",
+        "ANSWER": "Halima products are available at major supermarket chains, neighborhood grocery stores, and selected wholesalers across Cairo, Giza, Alexandria, and other governorates. Contact us for the nearest distributor in your area."
+      },
+      "Q13": {
+        "QUESTION": "Can I become a Halima distributor?",
+        "ANSWER": "Yes! We welcome partnership inquiries from retailers, wholesalers, and food service businesses. Visit our Contact page with your business details and our sales team will respond within 2–3 business days."
+      },
+      "Q14": {
+        "QUESTION": "How can I report a product quality concern?",
+        "ANSWER": "Your satisfaction matters. Contact us by phone or email with the product name, batch number, purchase date, and a brief description of the issue. Our quality team investigates every report and responds promptly."
+      },
+      "Q15": {
+        "QUESTION": "What are Halima's customer support hours and contact methods?",
+        "ANSWER": "Our support team is available Sunday through Thursday, 9:00 AM to 5:00 PM (Cairo time). Reach us by phone at +20 100 000 0000, email at info@halima.com, or through the contact form on our website."
+      }
+    }
+  },
+  "CONTACT": {
+    "META_TITLE": "Contact Us",
+    "META_DESCRIPTION": "Contact Halima for inquiries, partnerships, and customer support.",
+    "META_KEYWORDS": "contact Halima, Halima support",
+    "HERO_TITLE": "Contact Us",
+    "HERO_SUBTITLE": "We would love to hear from you. Send us a message and we will respond shortly.",
+    "INFO_TITLE": "Contact Information",
+    "INFO_INTRO": "Reach our team for product inquiries, distribution partnerships, or customer support. We typically respond within one business day.",
+    "INFO_ADDRESS_LABEL": "Address",
+    "INFO_PHONE_LABEL": "Phone",
+    "INFO_EMAIL_LABEL": "Email",
+    "INFO_HOURS_LABEL": "Working Hours",
+    "INFO_HOURS": "Sunday – Thursday: 9:00 AM – 5:00 PM",
+    "FORM_TITLE": "Send Us a Message",
+    "FORM_SUBTITLE": "Fill in the form below and our team will get back to you shortly.",
+    "FORM_NAME": "Full Name",
+    "FORM_EMAIL": "Email Address",
+    "FORM_PHONE": "Phone Number",
+    "FORM_PHONE_PLACEHOLDER": "e.g. +20 100 000 0000",
+    "FORM_SUBJECT": "Subject",
+    "FORM_MESSAGE": "Your Message",
+    "FORM_SUBMIT": "Send Message",
+    "FORM_SUBMITTING": "Sending...",
+    "FORM_SUCCESS": "Thank you! Your message has been sent successfully. We will reply soon.",
+    "FORM_ERROR": "Please fill in all required fields correctly.",
+    "FORM_SEND_ERROR": "Something went wrong while sending your message. Please try again or contact us by phone.",
+    "ERRORS": {
+      "REQUIRED": "This field is required.",
+      "EMAIL": "Please enter a valid email address.",
+      "PHONE": "Please enter a valid phone number (8–15 digits).",
+      "MIN_LENGTH": "Please enter at least {{min}} characters.",
+      "MESSAGE_MIN": "Your message must be at least 10 characters.",
+      "INVALID": "Please check this field."
+    },
+    "MAP_TITLE": "Find Us",
+    "MAP_SUBTITLE": "Visit our facility in Cairo's industrial zone or get directions below.",
+    "MAP_LOCATION": "Industrial Zone, Cairo, Egypt",
+    "MAP_PLACEHOLDER": "Interactive map coming soon — use the link below to open Google Maps.",
+    "MAP_OPEN": "Open in Google Maps",
+    "MAP_ARIA": "Map showing Halima location in Cairo, Egypt"
+  },
+  "LANG": {
+    "EN": "English",
+    "AR": "العربية",
+    "SWITCHER_LABEL": "Select language"
+  },
+  "NOT_FOUND": {
+    "META_TITLE": "Page Not Found",
+    "META_DESCRIPTION": "The page you are looking for could not be found on Halima website.",
+    "TITLE": "Page Not Found",
+    "MESSAGE": "Sorry, we could not find the page you requested. It may have been moved or no longer exists.",
+    "HOME": "Back to Home",
+    "CONTACT": "Contact Support"
+  },
+  "COMMON": {
+    "LOADING": "Loading...",
+    "CLOSE": "Close",
+    "SKIP_TO_CONTENT": "Skip to main content"
+  }
+}

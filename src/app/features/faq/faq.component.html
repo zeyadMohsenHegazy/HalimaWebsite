@@ -1,0 +1,50 @@
+<app-page-hero
+  [title]="'FAQ.HERO_TITLE' | translate"
+  [subtitle]="'FAQ.HERO_SUBTITLE' | translate"
+/>
+
+<section class="section faq-page">
+  <div class="container">
+    <!-- Category filters -->
+    <div class="faq-filters" role="tablist" [attr.aria-label]="'FAQ.FILTER_LABEL' | translate" appScrollReveal>
+      @for (cat of categories; track cat.id) {
+        <button
+          type="button"
+          role="tab"
+          class="faq-filters__btn"
+          [class.faq-filters__btn--active]="activeCategory() === cat.id"
+          [attr.aria-selected]="activeCategory() === cat.id"
+          (click)="setCategory(cat.id)"
+        >
+          {{ cat.labelKey | translate }}
+        </button>
+      }
+    </div>
+
+    <!-- Accordion -->
+    <div class="faq-accordion" role="presentation">
+      @if (filteredItems().length > 0) {
+        @for (item of filteredItems(); track item.id; let i = $index) {
+          <div appScrollReveal [revealDelay]="(i % 5) * 50">
+          <app-faq-item
+            [item]="item"
+            [expanded]="isExpanded(item.id)"
+            (toggleItem)="toggleItem(item.id)"
+          />
+          </div>
+        }
+      } @else {
+        <p class="faq-empty">{{ 'FAQ.EMPTY' | translate }}</p>
+      }
+    </div>
+
+    <!-- Help CTA -->
+    <aside class="faq-cta" appScrollReveal revealVariant="fade">
+      <div class="faq-cta__content">
+        <h2>{{ 'FAQ.CTA_TITLE' | translate }}</h2>
+        <p>{{ 'FAQ.CTA_TEXT' | translate }}</p>
+      </div>
+      <a routerLink="/contact" class="btn-primary">{{ 'FAQ.CTA_BUTTON' | translate }}</a>
+    </aside>
+  </div>
+</section>

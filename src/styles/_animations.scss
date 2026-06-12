@@ -1,0 +1,143 @@
+@use 'variables' as *;
+
+// ─── Scroll reveal ─────────────────────────────────────────────
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &--fade {
+    transform: none;
+  }
+
+  &--left {
+    transform: translateX(-32px);
+  }
+
+  &--right {
+    transform: translateX(32px);
+  }
+
+  &--scale {
+    transform: scale(0.96);
+  }
+
+  &--left.reveal--visible,
+  &--right.reveal--visible,
+  &--scale.reveal--visible {
+    transform: none;
+  }
+}
+
+// ─── Fade-in utility ───────────────────────────────────────────
+.fade-in {
+  animation: fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--fade-delay, 0ms);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ─── Skeleton shimmer ──────────────────────────────────────────
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba($color-border, 0.45) 0%,
+    rgba($color-border, 0.15) 50%,
+    rgba($color-border, 0.45) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+// ─── View transitions ────────────────────────────────────────────
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: vt-fade-out 0.28s ease both;
+  }
+
+  ::view-transition-new(root) {
+    animation: vt-fade-in 0.32s ease both;
+  }
+}
+
+@keyframes vt-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ─── Reduced motion ────────────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .fade-in,
+  .skeleton-shimmer {
+    animation: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+
+  .product-card--clickable:hover {
+    transform: none !important;
+  }
+
+  .product-card__image img {
+    transition: none !important;
+    transform: none !important;
+  }
+}

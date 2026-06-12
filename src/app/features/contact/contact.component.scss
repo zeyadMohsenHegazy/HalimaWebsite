@@ -1,0 +1,335 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.contact-main {
+  padding-block-start: 0;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 2.5rem;
+
+  @include respond-to(lg) {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+  }
+}
+
+// Contact Information
+.contact-info {
+  @include card;
+  padding: 2rem;
+  background: linear-gradient(160deg, $color-light 0%, $color-white 100%);
+  border-inline-start: 4px solid $color-primary;
+
+  h2 {
+    margin-block-end: 0.75rem;
+    font-size: 1.5rem;
+  }
+}
+
+.contact-info__intro {
+  margin: 0 0 1.75rem;
+  color: $color-text-muted;
+  line-height: 1.65;
+}
+
+.contact-info__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.contact-info__item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+
+  p {
+    margin: 0;
+    color: $color-text-muted;
+    line-height: 1.55;
+  }
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.contact-info__icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba($color-primary, 0.1);
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+}
+
+.contact-info__label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $color-primary;
+  margin-block-end: 0.25rem;
+}
+
+// Contact Form
+.contact-form-wrap {
+  @include card;
+  padding: 2rem;
+}
+
+.contact-form-wrap__title {
+  font-size: 1.5rem;
+  margin-block-end: 0.5rem;
+}
+
+.contact-form-wrap__subtitle {
+  margin: 0 0 1.75rem;
+  color: $color-text-muted;
+  line-height: 1.65;
+}
+
+.form-row {
+  display: grid;
+  gap: 1.25rem;
+
+  @include respond-to(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-group {
+  margin-block-end: 1.25rem;
+
+  label {
+    display: block;
+    margin-block-end: 0.5rem;
+    font-weight: 600;
+    color: $color-dark;
+
+    span {
+      color: $color-primary;
+    }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-sm;
+    background: $color-white;
+    font: inherit;
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.12);
+    }
+
+    &::placeholder {
+      color: rgba($color-text-muted, 0.7);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 130px;
+  }
+
+  &--invalid {
+    input,
+    textarea {
+      border-color: rgba($color-primary, 0.65);
+    }
+  }
+}
+
+.form-field-error {
+  margin: 0.4rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: $color-primary;
+}
+
+.form-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.15rem;
+  border-radius: $border-radius-sm;
+  margin-block-end: 1.25rem;
+
+  svg {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+    margin-block-start: 0.1rem;
+  }
+
+  p {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  &--success {
+    background: rgba(#1f7a3f, 0.08);
+    color: #1f7a3f;
+    border: 1px solid rgba(#1f7a3f, 0.2);
+  }
+
+  &--error {
+    background: rgba($color-primary, 0.06);
+    color: $color-primary;
+    border: 1px solid rgba($color-primary, 0.2);
+  }
+}
+
+.contact-form__submit {
+  width: 100%;
+  min-height: 48px;
+
+  @include respond-to(md) {
+    width: auto;
+    min-width: 200px;
+  }
+
+  &:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.contact-form__spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba($color-white, 0.35);
+  border-block-start-color: $color-white;
+  border-radius: 50%;
+  animation: contact-spin 0.7s linear infinite;
+}
+
+@keyframes contact-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Google Maps Placeholder
+.contact-map-section {
+  padding-block-start: 0;
+  background: $color-light;
+}
+
+.contact-map-header {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-block-end: 2rem;
+
+  h2 {
+    margin-block-end: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    color: $color-text-muted;
+    line-height: 1.65;
+  }
+}
+
+.contact-map {
+  border-radius: $border-radius;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+}
+
+.contact-map__placeholder {
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 2rem;
+  text-align: center;
+  background:
+    linear-gradient(135deg, rgba($color-primary, 0.04) 25%, transparent 25%) -20px 0 / 40px 40px,
+    linear-gradient(225deg, rgba($color-primary, 0.04) 25%, transparent 25%) -20px 0 / 40px 40px,
+    linear-gradient(315deg, rgba($color-primary, 0.04) 25%, transparent 25%) 0 0 / 40px 40px,
+    linear-gradient(45deg, rgba($color-primary, 0.04) 25%, transparent 25%) 0 0 / 40px 40px,
+    linear-gradient(180deg, #eef2f6 0%, #dfe6ee 100%);
+}
+
+.contact-map__pin {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: $color-primary;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba($color-primary, 0.35);
+  margin-block-end: 0.35rem;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+  }
+}
+
+.contact-map__label {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $color-dark;
+}
+
+.contact-map__hint {
+  margin: 0;
+  color: $color-text-muted;
+  max-width: 42ch;
+  line-height: 1.6;
+}
+
+.contact-map__link {
+  margin-block-start: 0.5rem;
+  color: $color-primary;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,47 @@
+@if (product) {
+  <div
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="getProductName(product, language.currentLanguage())"
+    (click)="onBackdropClick($event)"
+  >
+    <div class="modal__dialog" #dialog>
+      <button
+        type="button"
+        class="modal__close"
+        (click)="close()"
+        [attr.aria-label]="'COMMON.CLOSE' | translate"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+
+      <div class="modal__image">
+        <app-lazy-image
+          [src]="product.image"
+          [alt]="getProductName(product, language.currentLanguage())"
+          [width]="480"
+          [height]="360"
+          priority="high"
+          aspectRatio="4 / 3"
+        />
+        <span class="modal__category">
+          {{ ('PRODUCTS.FILTER_' + (product.category === 'juice' ? 'JUICE' : 'MILK')) | translate }}
+        </span>
+      </div>
+
+      <div class="modal__body">
+        <h2>{{ getProductName(product, language.currentLanguage()) }}</h2>
+        <p>{{ getProductDescription(product, language.currentLanguage()) }}</p>
+        <div class="modal__actions">
+          <a routerLink="/contact" class="btn-primary" (click)="close()">
+            {{ 'PRODUCTS.MODAL_CTA' | translate }}
+          </a>
+          <button type="button" class="modal__dismiss" (click)="close()">
+            {{ 'PRODUCTS.MODAL_CLOSE' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+}

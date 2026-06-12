@@ -1,0 +1,26 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.page-hero {
+  margin-block-start: $navbar-height;
+  background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 12%) 100%);
+  color: $color-white;
+  padding-block: 4.5rem;
+}
+
+.page-hero__content {
+  max-width: 760px;
+
+  h1 {
+    color: $color-white;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-block-end: 1rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.125rem;
+    color: rgba($color-white, 0.92);
+    line-height: 1.7;
+  }
+}
