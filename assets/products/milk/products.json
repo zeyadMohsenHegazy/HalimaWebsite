@@ -1,0 +1,38 @@
+[
+  {
+    "id": "milk-full-cream",
+    "nameEn": "Full Cream Milk",
+    "nameAr": "حليب كامل الدسم",
+    "descriptionEn": "Rich, creamy milk sourced from trusted farms for daily nutrition.",
+    "descriptionAr": "حليب غني وكريمي من مزارع موثوقة للتغذية اليومية.",
+    "image": "assets/products/milk/milk-1.jpeg",
+    "category": "milk"
+  },
+  {
+    "id": "milk-low-fat",
+    "nameEn": "Low Fat Milk",
+    "nameAr": "حليب قليل الدسم",
+    "descriptionEn": "Light and wholesome milk with all the essential nutrients.",
+    "descriptionAr": "حليب خفيف ومغذٍ بجميع العناصر الأساسية.",
+    "image": "assets/products/milk/milk-2.jpeg",
+    "category": "milk"
+  },
+  {
+    "id": "milk-chocolate",
+    "nameEn": "Chocolate Milk",
+    "nameAr": "حليب بالشوكولاتة",
+    "descriptionEn": "Delicious chocolate-flavored milk loved by children and adults alike.",
+    "descriptionAr": "حليب بنكهة الشوكولاتة اللذيذة محبوب من الأطفال والكبار.",
+    "image": "assets/products/milk/milk-3.jpeg",
+    "category": "milk"
+  },
+  {
+    "id": "milk-laban",
+    "nameEn": "Fresh Laban",
+    "nameAr": "لبن طازج",
+    "descriptionEn": "Traditional fermented laban with a smooth, tangy taste.",
+    "descriptionAr": "لبن تقليدي مخمر بطعم ناعم ومنعش.",
+    "image": "assets/products/milk/milk-4.jpeg",
+    "category": "milk"
+  }
+]
