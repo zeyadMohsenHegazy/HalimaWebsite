@@ -1,6 +1,37 @@
 # Halima — Deployment Guide
 
-This guide covers production builds and deployment to **IIS**, **Nginx**, **Azure**, and **Hostinger**.
+This guide covers production builds and deployment to **Netlify**, **IIS**, **Nginx**, **Azure**, and **Hostinger**.
+
+---
+
+## Netlify (recommended)
+
+Site: [halima-website](https://app.netlify.com/projects/halima-website) → [https://halima-website.netlify.app](https://halima-website.netlify.app)
+
+Config file: `netlify.toml` at the repo root.
+
+| Setting | Value |
+|---------|--------|
+| Build command | `npm run generate:sitemap && npx ng build --configuration=production --base-href=/` |
+| Publish directory | `dist/halima-website/browser` |
+| Node | 20 |
+
+### Connect GitHub (continuous deploy)
+
+1. Open [Netlify project](https://app.netlify.com/projects/halima-website)
+2. **Site configuration → Build & deploy → Continuous deployment → Link repository**
+3. Choose `zeyadMohsenHegazy/HalimaWebsite`, branch `main`
+4. Leave build settings to pick up `netlify.toml`
+5. Every push to `main` triggers a deploy
+
+### Manual CLI deploy
+
+```bash
+npm run build
+npx netlify login
+npx netlify link --id 9a0fa0cb-b583-4744-bada-7c6c6a9bb8e7
+npx netlify deploy --prod --dir=dist/halima-website/browser
+```
 
 ---
 

@@ -1,6 +1,10 @@
 # Halima Website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9a0fa0cb-b583-4744-bada-7c6c6a9bb8e7/deploy-status)](https://app.netlify.com/projects/halima-website/deploys)
+
 Premium bilingual (English / Arabic) corporate website for **Halima** — a dairy and juice manufacturing brand. Built with **Angular 18**, standalone components, SSR + prerendering, and production-ready SEO.
+
+**Live:** [https://halima-website.netlify.app](https://halima-website.netlify.app)
 
 ## Features
 
@@ -138,7 +142,22 @@ public/             # robots.txt, sitemap.xml (generated)
 
 ## Deployment
 
-See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for full guides:
+### Netlify (primary)
+
+Config is in `netlify.toml` (build → `dist/halima-website/browser`).
+
+1. In [Netlify](https://app.netlify.com/projects/halima-website): **Site configuration → Build & deploy → Continuous deployment** → link this GitHub repo (`zeyadMohsenHegazy/HalimaWebsite`), branch `main`.
+2. Push to `main` — Netlify builds and publishes automatically.
+3. Site URL: [https://halima-website.netlify.app](https://halima-website.netlify.app)
+
+Manual deploy (optional):
+
+```bash
+npm run build
+npx netlify deploy --prod --dir=dist/halima-website/browser
+```
+
+See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for other hosts:
 
 - IIS (Windows Server)
 - Nginx (Linux VPS)
